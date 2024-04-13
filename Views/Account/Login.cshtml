@@ -1,0 +1,35 @@
+﻿@model SQ20.Net_Wee7_8_Task.ViewModel.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row loginParent">
+    <div class="col-md-6 offset-3">
+       
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span><b>Sorry!</b> - @TempData["Error"]</span>
+            </div>
+        }
+        <div class="row loginContainer">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <label asp-for="EmailAddress" class="control-label"></label>
+                    <input asp-for="EmailAddress" class="form-control loginEmailInput">
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-outline-success float right" type="submit" value="Log in" />
+                        <a class="btn btn-outline-secondary" asp-controller="DashBoard" asp-action="Index">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
